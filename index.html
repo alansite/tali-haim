@@ -285,6 +285,43 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
   .cd-unit { min-width:46px;padding:10px 7px; }
   .cd-num { font-size:21px; }
 }
+
+/* PARENTS BLOC */
+.family-intro-text { font-family:'Libre Baskerville',serif;font-style:italic;font-size:14px;color:var(--brown-mid);margin-bottom:2rem;letter-spacing:0.05em; }
+.parents-duo { display:flex;align-items:flex-start;justify-content:center;gap:0;margin:1.5rem 0; }
+.parent-side { flex:1;text-align:center;padding:0 1rem; }
+.parent-label { font-size:8px;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem; }
+.parent-name { display:block;font-family:'Italiana',serif;font-size:22px;color:var(--brown);line-height:1.3; }
+.parents-and { font-family:'Libre Baskerville',serif;font-style:italic;color:var(--gold);font-size:24px;padding:0 0.5rem;margin-top:1.6rem;flex-shrink:0; }
+
+/* NOMS COUPLE HÉBREU */
+.couple-names-block { display:flex;align-items:center;justify-content:center;gap:0;margin:1.5rem 0; }
+.bride-name-block,.groom-name-block { text-align:center;flex:1; }
+.couple-big-name { font-family:'Italiana',serif;font-size:clamp(52px,14vw,80px);color:var(--brown);line-height:0.95; }
+.couple-amp-center { font-family:'Libre Baskerville',serif;font-style:italic;color:var(--gold);font-size:clamp(28px,7vw,44px);padding:0 0.4rem;flex-shrink:0;align-self:center;margin-bottom:1rem; }
+.hebrew-name { font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold);letter-spacing:0.05em;margin-top:0.3rem;direction:rtl; }
+.hebrew-name-fr { font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--brown-mid);margin-top:0.3rem; }
+
+/* MUSIC PLAYER */
+#music-player {
+  position:fixed;bottom:24px;right:24px;z-index:200;
+  display:flex;align-items:center;gap:12px;
+  background:rgba(58,42,20,0.92);backdrop-filter:blur(12px);
+  border:1px solid rgba(201,150,58,0.35);
+  padding:12px 18px;
+  transform:translateY(100px);opacity:0;
+  transition:transform 0.6s cubic-bezier(0.34,1.2,0.64,1),opacity 0.5s ease;
+}
+#music-player.visible { transform:translateY(0);opacity:1; }
+.music-btn { width:36px;height:36px;border-radius:50%;border:1px solid rgba(201,150,58,0.5);background:transparent;color:var(--gold);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all 0.3s;flex-shrink:0; }
+.music-btn:hover { background:var(--gold);color:var(--brown); }
+.music-info { display:flex;flex-direction:column;gap:2px; }
+.music-title { font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--sand); }
+.music-bar { display:flex;gap:3px;align-items:flex-end;height:16px; }
+.music-bar span { width:3px;background:var(--gold);border-radius:1px;animation:bar-bounce var(--d,0.8s) ease-in-out infinite alternate; }
+@keyframes bar-bounce { from{height:3px;opacity:0.4} to{height:14px;opacity:1} }
+.music-bar.paused span { animation-play-state:paused; }
+@media(max-width:480px) { #music-player{bottom:16px;right:16px;padding:10px 14px;} }
 </style>
 </head>
 <body>
@@ -399,17 +436,47 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
       </div>
       <p class="hebrew-verse reveal reveal-delay-2">קוֹל שָׂשׂוֹן וְקוֹל שִׂמְחָה<br>קוֹל חָתָן וְקוֹל כַּלָּה</p>
       <p class="verse-translation reveal reveal-delay-3">La voix de la joie et l'allégresse · La voix du fiancé et de la fiancée</p>
+
+      <!-- PARENTS BLOC -->
       <div class="families-block reveal">
-        <p class="family-line">Les familles</p>
-        <span class="family-name">M. et Mme Abouzdid</span>
-        <p style="font-size:11px;color:var(--gold);letter-spacing:0.3em;margin:0.8rem 0;">&amp;</p>
-        <span class="family-name">M. et Mme Gebai</span>
+        <p class="family-intro-text">Avec la grâce de Hachem,</p>
+
+        <div class="parents-duo">
+          <div class="parent-side reveal reveal-delay-1">
+            <p class="parent-label">Ses parents</p>
+            <span class="parent-name">Dov Abouzdid</span>
+            <span class="parent-name">Pamela Messina</span>
+          </div>
+          <div class="parents-and">&amp;</div>
+          <div class="parent-side reveal reveal-delay-2">
+            <p class="parent-label">Ses parents</p>
+            <span class="parent-name">James Gebai</span>
+            <span class="parent-name">Sonia Gebai</span>
+          </div>
+        </div>
       </div>
-      <p class="joy-text reveal reveal-delay-1">Ont l'immense joie de vous faire part<br>du mariage de leurs enfants</p>
+
+      <p class="joy-text reveal reveal-delay-1">remercient Hachem de vous convier<br>au mariage de leurs enfants</p>
+
       <div class="section-divider reveal reveal-delay-2">
         <div class="sd-line"></div><div class="sd-diamond"></div><div class="sd-line"></div>
       </div>
-      <div class="couple-big reveal">Tali<em>&amp;</em>Haïm</div>
+
+      <!-- NOMS COUPLE avec hébreu -->
+      <div class="couple-names-block reveal">
+        <div class="bride-name-block">
+          <div class="couple-big-name">Tali</div>
+          <div class="hebrew-name">שָׂרָה</div>
+          <div class="hebrew-name-fr">Sarah</div>
+        </div>
+        <div class="couple-amp-center">&amp;</div>
+        <div class="groom-name-block">
+          <div class="couple-big-name">Haïm</div>
+          <div class="hebrew-name">אֱלִיעֶזֶר</div>
+          <div class="hebrew-name-fr">Elieser</div>
+        </div>
+      </div>
+
       <div class="section-divider reveal">
         <div class="sd-line"></div><div class="sd-diamond"></div><div class="sd-line"></div>
       </div>
@@ -447,8 +514,8 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
         <p class="venue-name">Basico</p>
         <p class="venue-address">HaNivheret St 6<br>Ness Ziona, Israël</p>
         <div class="action-btns">
-          <a href="https://waze.com/ul?q=Via%20Events%20Ness%20Ziona" target="_blank" class="btn-nav">🗺 Ouvrir dans Waze</a>
-          <a href="https://maps.google.com/?cid=14027188501293095011" target="_blank" class="btn-maps btn-nav" style="background:transparent;border:1px solid rgba(212,180,131,0.4);color:var(--sand);">📍 Google Maps</a>
+          <a href="https://waze.com/ul?ll=31.9356,34.7880&navigate=yes&q=Basico+HaNivheret+Ness+Ziona" target="_blank" class="btn-nav">🗺 Ouvrir dans Waze</a>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJf-c0oBO3Ahcbg-j3ohLiGtU" target="_blank" class="btn-maps btn-nav" style="background:transparent;border:1px solid rgba(212,180,131,0.4);color:var(--sand);">📍 Google Maps</a>
           <button class="btn-calendar" onclick="addToCalendar()">📅 Bloquer la date</button>
         </div>
       </div>
@@ -518,6 +585,24 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
     <p class="footer-date">18 · VIII · 2025 · Basico · Ness Ziona</p>
     <p class="footer-heb">בְּשָׂשׂוֹן וּבְשִׂמְחָה</p>
   </footer>
+
+  <!-- MUSIC PLAYER -->
+  <div id="music-player">
+    <button class="music-btn" id="music-btn" onclick="toggleMusic()" title="Musique">▶</button>
+    <div class="music-info">
+      <span class="music-title">Notre mélodie</span>
+      <div class="music-bar paused" id="music-bar">
+        <span style="--d:.6s;animation-delay:0s"></span>
+        <span style="--d:.8s;animation-delay:.1s"></span>
+        <span style="--d:.7s;animation-delay:.2s"></span>
+        <span style="--d:.9s;animation-delay:.05s"></span>
+        <span style="--d:.65s;animation-delay:.15s"></span>
+      </div>
+    </div>
+  </div>
+  <audio id="bg-music" loop>
+    <source src="musique.mp3" type="audio/mpeg">
+  </audio>
 </div>
 
 <script>
@@ -659,6 +744,53 @@ async function submitRSVP() {
   form.style.opacity = '0'; form.style.transition = 'opacity 0.5s';
   setTimeout(() => { form.style.display='none'; document.getElementById('rsvp-confirm').style.display='block'; }, 500);
 }
+
+
+/* ── MUSIQUE AU SCROLL ── */
+const bgMusic = document.getElementById('bg-music');
+const musicPlayer = document.getElementById('music-player');
+const musicBtn = document.getElementById('music-btn');
+const musicBar = document.getElementById('music-bar');
+let musicStarted = false;
+let musicPlaying = false;
+
+function toggleMusic() {
+  if (musicPlaying) {
+    bgMusic.pause();
+    musicPlaying = false;
+    musicBtn.textContent = '▶';
+    musicBar.classList.add('paused');
+  } else {
+    bgMusic.play().catch(()=>{});
+    musicPlaying = true;
+    musicBtn.textContent = '⏸';
+    musicBar.classList.remove('paused');
+  }
+}
+
+// Apparaît au premier scroll et démarre la musique
+window.addEventListener('scroll', () => {
+  if (!musicStarted && window.scrollY > 80) {
+    musicStarted = true;
+    musicPlayer.classList.add('visible');
+    bgMusic.volume = 0;
+    bgMusic.play().then(() => {
+      // Fade in volume
+      let vol = 0;
+      const fadeIn = setInterval(() => {
+        vol = Math.min(vol + 0.03, 0.45);
+        bgMusic.volume = vol;
+        if (vol >= 0.45) clearInterval(fadeIn);
+      }, 80);
+      musicPlaying = true;
+      musicBtn.textContent = '⏸';
+      musicBar.classList.remove('paused');
+    }).catch(() => {
+      // Autoplay bloqué : affiche juste le player
+      musicPlayer.classList.add('visible');
+    });
+  }
+}, { passive: true });
 
 /* ── REVEAL ── */
 const observer = new IntersectionObserver(entries => {
