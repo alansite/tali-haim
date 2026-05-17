@@ -4,13 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Tali & Haïm · 18 Août 2025</title>
-<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
   --gold: #C9963A;
   --gold-light: #E8C07A;
-  --gold-pale: #F5E6C8;
   --cream: #FDFAF4;
   --warm: #F7F0E3;
   --brown: #3A2A14;
@@ -18,115 +17,84 @@
   --sand: #D4B483;
 }
 html { scroll-behavior: smooth; }
-body {
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  background: var(--cream);
-  color: var(--brown);
-  overflow-x: hidden;
-  cursor: none;
-}
+body { font-family: 'Jost', sans-serif; font-weight: 300; background: var(--cream); color: var(--brown); overflow-x: hidden; cursor: none; }
 
 /* CURSEUR */
-.cursor { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; position: fixed; top:0;left:0; pointer-events:none; z-index:9999; mix-blend-mode:multiply; }
-.cursor-ring { width: 32px; height: 32px; border: 1px solid var(--gold); border-radius: 50%; position: fixed; top:0;left:0; pointer-events:none; z-index:9998; transition: transform 0.4s ease; opacity: 0.6; }
+.cursor { width:8px;height:8px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:multiply; }
+.cursor-ring { width:32px;height:32px;border:1px solid var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:transform 0.4s ease;opacity:0.6; }
 
 /* INTRO */
-#page-intro {
-  position: fixed; inset: 0; z-index: 100;
-  background: var(--brown);
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  overflow: hidden;
-  transition: transform 1.2s cubic-bezier(0.76,0,0.24,1);
-}
-#page-intro.slide-up { transform: translateY(-100%); }
-
-.intro-sun { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(201,150,58,0.18) 0%, transparent 70%); top:50%;left:50%; transform:translate(-50%,-50%); animation: pulse-sun 4s ease-in-out infinite; }
+#page-intro { position:fixed;inset:0;z-index:100;background:var(--brown);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;transition:transform 1.2s cubic-bezier(0.76,0,0.24,1); }
+#page-intro.slide-up { transform:translateY(-100%); }
+.intro-sun { position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(201,150,58,0.18) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);animation:pulse-sun 4s ease-in-out infinite; }
 @keyframes pulse-sun { 0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.8} 50%{transform:translate(-50%,-50%) scale(1.08);opacity:1} }
-
-.intro-rays { position: absolute; width: 100%; height: 100%; }
-.ray { position: absolute; top:50%;left:50%; width:2px; height:280px; background: linear-gradient(to top, transparent, rgba(201,150,58,0.12), transparent); transform-origin: bottom center; animation: rotate-rays 30s linear infinite; }
-@keyframes rotate-rays { to { transform: rotate(360deg); } }
-
-.intro-content { position: relative; z-index: 2; text-align: center; padding: 2rem; }
-.intro-label { font-size: 10px; letter-spacing: 0.6em; color: var(--gold); text-transform: uppercase; margin-bottom: 2.5rem; animation: fadeUp 0.8s 0.3s both; }
-.intro-title { font-family: 'Italiana', serif; font-size: clamp(80px,22vw,140px); color: var(--cream); line-height: 0.88; animation: fadeUp 1s 0.5s both; }
-.intro-title .amp { color: var(--gold); font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 0.55em; display: block; line-height: 1.4; }
-.intro-date { font-size: 12px; letter-spacing: 0.45em; color: var(--sand); margin-top: 2rem; margin-bottom: 4rem; animation: fadeUp 0.8s 0.8s both; }
-.intro-btn { display: inline-flex; align-items: center; gap: 16px; padding: 18px 48px; background: transparent; border: 1px solid rgba(201,150,58,0.5); color: var(--gold); font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.5em; text-transform: uppercase; cursor: pointer; animation: fadeUp 0.8s 1.1s both; transition: all 0.4s ease; position: relative; overflow: hidden; }
-.intro-btn::before { content:''; position:absolute; inset:0; background:var(--gold); transform:translateX(-100%); transition:transform 0.4s ease; }
+.intro-rays { position:absolute;width:100%;height:100%; }
+.ray { position:absolute;top:50%;left:50%;width:2px;height:280px;background:linear-gradient(to top,transparent,rgba(201,150,58,0.12),transparent);transform-origin:bottom center;animation:rotate-rays 30s linear infinite; }
+@keyframes rotate-rays { to{transform:rotate(360deg)} }
+.intro-content { position:relative;z-index:2;text-align:center;padding:2rem; }
+.intro-label { font-size:10px;letter-spacing:0.6em;color:var(--gold);text-transform:uppercase;margin-bottom:2.5rem;animation:fadeUp 0.8s 0.3s both; }
+.intro-title { font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(80px,22vw,140px);color:var(--cream);line-height:0.88;animation:fadeUp 1s 0.5s both; }
+.intro-title .amp { color:var(--gold);font-family:'EB Garamond',serif;font-style:italic;font-size:0.55em;display:block;line-height:1.4; }
+.intro-date { font-size:12px;letter-spacing:0.45em;color:var(--sand);margin-top:2rem;margin-bottom:4rem;animation:fadeUp 0.8s 0.8s both; }
+.intro-btn { display:inline-flex;align-items:center;gap:16px;padding:18px 48px;background:transparent;border:1px solid rgba(201,150,58,0.5);color:var(--gold);font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.5em;text-transform:uppercase;cursor:pointer;animation:fadeUp 0.8s 1.1s both;transition:all 0.4s ease;position:relative;overflow:hidden; }
+.intro-btn::before { content:'';position:absolute;inset:0;background:var(--gold);transform:translateX(-100%);transition:transform 0.4s ease; }
 .intro-btn:hover::before { transform:translateX(0); }
-.intro-btn:hover { color: var(--brown); }
-.intro-btn span { position: relative; z-index:1; }
+.intro-btn:hover { color:var(--brown); }
+.intro-btn span { position:relative;z-index:1; }
 .btn-arrow { width:28px;height:1px;background:currentColor;position:relative;transition:width 0.3s; }
 .btn-arrow::after { content:'';position:absolute;right:0;top:-3px;width:7px;height:7px;border-right:1px solid currentColor;border-top:1px solid currentColor;transform:rotate(45deg); }
 .intro-btn:hover .btn-arrow { width:40px; }
 @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
 
 /* FIREFLIES */
-.firefly { position:absolute; width:4px;height:4px; border-radius:50%; background:var(--gold-light); z-index:5; animation: ff var(--dur,8s) ease-in-out var(--delay,0s) infinite alternate; box-shadow:0 0 6px 3px rgba(232,192,122,0.7),0 0 12px 6px rgba(232,192,122,0.25); pointer-events:none; }
+.firefly { position:absolute;width:4px;height:4px;border-radius:50%;background:var(--gold-light);z-index:5;animation:ff var(--dur,8s) ease-in-out var(--delay,0s) infinite alternate;box-shadow:0 0 6px 3px rgba(232,192,122,0.7),0 0 12px 6px rgba(232,192,122,0.25);pointer-events:none; }
 @keyframes ff { 0%{opacity:0;transform:translate(0,0)} 25%{opacity:1} 75%{opacity:0.7} 100%{opacity:0;transform:translate(var(--dx,60px),var(--dy,-80px))} }
 
 /* PETALES */
-.petal { position:fixed;pointer-events:none; border-radius:50% 10% 50% 10%; opacity:0; z-index:49; animation:petal-fall var(--dur,7s) ease-in var(--delay,0s) infinite; }
+.petal { position:fixed;pointer-events:none;border-radius:50% 10% 50% 10%;opacity:0;z-index:49;animation:petal-fall var(--dur,7s) ease-in var(--delay,0s) infinite; }
 @keyframes petal-fall { 0%{opacity:0;transform:translateY(-30px) rotate(0deg)} 10%{opacity:.7} 90%{opacity:.2} 100%{opacity:0;transform:translateY(105vh) rotate(540deg) translateX(var(--drift,40px))} }
 
 /* MAIN */
-#main-site { opacity: 0; transition: opacity 0.8s ease 0.8s; }
-#main-site.visible { opacity: 1; }
+#main-site { opacity:0;transition:opacity 0.8s ease 0.8s; }
+#main-site.visible { opacity:1; }
 
 /* HERO */
-.hero { min-height: 100vh; background: var(--brown); display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-.hero-sky { position:absolute;inset:0; background: linear-gradient(180deg,#1A1008 0%,#3A2A14 35%,#6B3A18 65%,#C4784A 85%,#E8A85C 100%); }
-
-.hero-sun { position:absolute;bottom:25%;left:50%;transform:translateX(-50%); width:220px;height:220px;border-radius:50%; background: radial-gradient(circle,#FFE066 0%,#FFC13A 40%,#E8803A 70%,transparent 100%); box-shadow:0 0 80px 40px rgba(255,180,60,0.2),0 0 200px 100px rgba(255,120,30,0.1); z-index:2; }
-
-/* Halo animé autour du soleil */
-.hero-sun-halo { position:absolute;bottom:25%;left:50%;transform:translateX(-50%); width:260px;height:260px;border-radius:50%; background: transparent; border:1px solid rgba(255,200,80,0.2); z-index:2; animation:halo 3s ease-in-out infinite; }
-.hero-sun-halo2 { width:310px;height:310px; border-color:rgba(255,160,40,0.1); animation-delay:1s; animation-duration:4s; }
+.hero { min-height:100vh;background:var(--brown);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden; }
+.hero-sky { position:absolute;inset:0;background:linear-gradient(180deg,#1A1008 0%,#3A2A14 35%,#6B3A18 65%,#C4784A 85%,#E8A85C 100%); }
+.hero-sun { position:absolute;bottom:25%;left:50%;transform:translateX(-50%);width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#FFE066 0%,#FFC13A 40%,#E8803A 70%,transparent 100%);box-shadow:0 0 80px 40px rgba(255,180,60,0.2),0 0 200px 100px rgba(255,120,30,0.1);z-index:2; }
+.hero-sun-halo { position:absolute;bottom:25%;left:50%;transform:translateX(-50%);width:260px;height:260px;border-radius:50%;background:transparent;border:1px solid rgba(255,200,80,0.2);z-index:2;animation:halo 3s ease-in-out infinite; }
+.hero-sun-halo2 { width:310px;height:310px;border-color:rgba(255,160,40,0.1);animation-delay:1s;animation-duration:4s; }
 @keyframes halo { 0%,100%{transform:translateX(-50%) scale(1);opacity:0.6} 50%{transform:translateX(-50%) scale(1.08);opacity:1} }
-
-/* Rayon vertical mer */
-.sun-ray-sea { position:absolute;bottom:0;left:50%;transform:translateX(-50%); width:60px;height:28%;z-index:3; background:linear-gradient(to bottom,rgba(255,210,80,0.25),rgba(255,180,60,0.05),transparent); animation:ray-sea 3s ease-in-out infinite alternate; pointer-events:none; }
+.sun-ray-sea { position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:28%;z-index:3;background:linear-gradient(to bottom,rgba(255,210,80,0.25),rgba(255,180,60,0.05),transparent);animation:ray-sea 3s ease-in-out infinite alternate;pointer-events:none; }
 @keyframes ray-sea { from{width:40px;opacity:.5} to{width:90px;opacity:.85} }
-
-.hero-sea { position:absolute;bottom:0;left:0;width:100%;height:28%; background:linear-gradient(180deg,rgba(139,196,216,0.15) 0%,rgba(100,160,190,0.3) 50%,rgba(60,120,160,0.4) 100%); z-index:2; }
-.sea-shimmer { position:absolute;width:100%;height:100%; background:repeating-linear-gradient(90deg,transparent 0px,transparent 80px,rgba(255,255,255,0.04) 80px,rgba(255,255,255,0.04) 82px); animation:sea-move 8s linear infinite; }
+.hero-sea { position:absolute;bottom:0;left:0;width:100%;height:28%;background:linear-gradient(180deg,rgba(139,196,216,0.15) 0%,rgba(100,160,190,0.3) 50%,rgba(60,120,160,0.4) 100%);z-index:2; }
+.sea-shimmer { position:absolute;width:100%;height:100%;background:repeating-linear-gradient(90deg,transparent 0px,transparent 80px,rgba(255,255,255,0.04) 80px,rgba(255,255,255,0.04) 82px);animation:sea-move 8s linear infinite; }
 @keyframes sea-move { from{transform:translateX(0)} to{transform:translateX(82px)} }
-
-/* Scintillements mer */
-.sea-sparkle { position:absolute; border-radius:50%; background:rgba(255,240,150,0.9); z-index:4; animation:sparkle var(--dur,2s) ease-in-out var(--delay,0s) infinite; }
+.sea-sparkle { position:absolute;border-radius:50%;background:rgba(255,240,150,0.9);z-index:4;animation:sparkle var(--dur,2s) ease-in-out var(--delay,0s) infinite; }
 @keyframes sparkle { 0%,100%{opacity:0;transform:scale(0.5)} 50%{opacity:1;transform:scale(1)} }
-
 .stars { position:absolute;top:0;left:0;width:100%;height:50%;z-index:2; }
 .star { position:absolute;width:2px;height:2px;background:white;border-radius:50%;animation:twinkle var(--dur,3s) ease-in-out infinite; }
 @keyframes twinkle { 0%,100%{opacity:.2} 50%{opacity:1} }
-
-/* Étoile filante */
 @keyframes shooting { 0%{opacity:0;transform:translate(0,0)} 5%{opacity:1} 30%{opacity:0;transform:translate(300px,150px)} 100%{opacity:0;transform:translate(300px,150px)} }
 .shooting-star { position:absolute;width:100px;height:1px;background:linear-gradient(to right,transparent,white,transparent);z-index:3;opacity:0; }
-
 .palm { position:absolute;bottom:18%;z-index:4; }
 .palm-left { left:5%; }
 .palm-right { right:5%;transform:scaleX(-1); }
-
 .hero-content { position:relative;z-index:10;text-align:center;padding:2rem;display:flex;flex-direction:column;align-items:center; }
 .hero-eyebrow { font-size:9px;letter-spacing:0.6em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem;opacity:0;animation:heroFade 1s 0.3s forwards; }
-.hero-names { font-family:'Italiana',serif;font-size:clamp(72px,20vw,130px);color:var(--cream);line-height:0.88;opacity:0;animation:heroFade 1s 0.5s forwards; }
-.hero-names .amp { font-family:'Libre Baskerville',serif;font-style:italic;color:var(--gold-light);font-size:0.5em;display:block;line-height:1.5; }
+.hero-names { font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(72px,20vw,130px);color:var(--cream);line-height:0.88;opacity:0;animation:heroFade 1s 0.5s forwards; }
+.hero-names .amp { font-family:'EB Garamond',serif;font-style:italic;color:var(--gold-light);font-size:0.5em;display:block;line-height:1.5; }
 .hero-divider { display:flex;align-items:center;gap:16px;margin:2rem 0;opacity:0;animation:heroFade 1s 0.8s forwards; }
 .div-line { width:60px;height:1px;background:linear-gradient(to right,transparent,rgba(201,150,58,0.6)); }
 .div-line.right { background:linear-gradient(to left,transparent,rgba(201,150,58,0.6)); }
 .div-star { width:5px;height:5px;background:var(--gold);transform:rotate(45deg); }
-.hero-date { font-family:'Libre Baskerville',serif;font-style:italic;font-size:clamp(16px,4vw,24px);color:var(--sand);margin-bottom:0.5rem;opacity:0;animation:heroFade 1s 1s forwards; }
+.hero-date { font-family:'EB Garamond',serif;font-style:italic;font-size:clamp(16px,4vw,24px);color:var(--sand);margin-bottom:0.5rem;opacity:0;animation:heroFade 1s 1s forwards; }
 .hero-jewish { font-size:11px;letter-spacing:0.3em;color:rgba(212,180,131,0.6);margin-bottom:3rem;opacity:0;animation:heroFade 1s 1.1s forwards; }
 @keyframes heroFade { to{opacity:1} }
-
 .countdown { display:flex;gap:2px;opacity:0;animation:heroFade 1s 1.3s forwards; }
 .cd-unit { display:flex;flex-direction:column;align-items:center;background:rgba(255,255,255,0.04);backdrop-filter:blur(4px);border:1px solid rgba(201,150,58,0.2);padding:18px 22px;min-width:72px; }
-.cd-num { font-family:'Italiana',serif;font-size:36px;color:var(--cream);line-height:1; }
+.cd-num { font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--cream);line-height:1; }
 .cd-label { font-size:7px;letter-spacing:0.4em;color:var(--gold);text-transform:uppercase;margin-top:6px; }
-
 .scroll-cta { margin-top:3rem;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:heroFade 1s 1.6s forwards; }
 .scroll-cta-text { font-size:8px;letter-spacing:0.5em;color:var(--sand);text-transform:uppercase; }
 .scroll-line { width:1px;height:50px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scroll-drop 2s ease-in-out infinite; }
@@ -136,8 +104,8 @@ body {
 section { width:100%;padding:7rem 2rem; }
 .section-inner { max-width:480px;margin:0 auto;text-align:center; }
 .eyebrow { font-size:9px;letter-spacing:0.6em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem;display:block; }
-.section-title { font-family:'Italiana',serif;font-size:clamp(44px,12vw,72px);color:var(--brown);line-height:1;margin-bottom:1rem; }
-.section-title em { font-family:'Libre Baskerville',serif;font-style:italic;color:var(--gold); }
+.section-title { font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(44px,12vw,72px);color:var(--brown);line-height:1;margin-bottom:1rem; }
+.section-title em { font-family:'EB Garamond',serif;font-style:italic;color:var(--gold); }
 .section-divider { display:flex;align-items:center;gap:12px;justify-content:center;margin:1.8rem 0; }
 .sd-line { flex:1;max-width:60px;height:1px;background:rgba(201,150,58,0.35); }
 .sd-diamond { width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0; }
@@ -145,54 +113,57 @@ section { width:100%;padding:7rem 2rem; }
 /* INVITATION */
 #invitation { background:var(--warm);position:relative;overflow:hidden; }
 #invitation::before { content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,150,58,0.08) 0%,transparent 60%);pointer-events:none; }
-.hebrew-verse { font-family:'Libre Baskerville',serif;font-style:italic;font-size:18px;color:var(--gold);direction:rtl;line-height:2;margin-bottom:0.5rem; }
+.hebrew-verse { font-family:'EB Garamond',serif;font-style:italic;font-size:18px;color:var(--gold);direction:rtl;line-height:2;margin-bottom:0.5rem; }
 .verse-translation { font-size:10px;letter-spacing:0.3em;color:var(--brown-mid);margin-bottom:3rem;text-transform:uppercase; }
-.families-block { margin:2.5rem 0; }
-.family-line { font-size:10px;letter-spacing:0.35em;color:var(--brown-mid);text-transform:uppercase;margin-bottom:1.2rem; }
-.family-name { display:block;font-family:'Italiana',serif;font-size:28px;color:var(--brown);line-height:1.2;margin-bottom:0.3rem; }
-.joy-text { font-family:'Libre Baskerville',serif;font-style:italic;font-size:16px;color:var(--brown-mid);line-height:2;margin:2rem 0; }
-.couple-big { font-family:'Italiana',serif;font-size:clamp(64px,18vw,100px);color:var(--brown);line-height:0.9;margin:1rem 0; }
-.couple-big em { color:var(--gold);font-family:'Libre Baskerville',serif;font-style:italic;font-size:0.5em;display:block;line-height:1.8; }
-.closing-text { font-family:'Libre Baskerville',serif;font-style:italic;font-size:15px;color:var(--brown-mid);line-height:2.2; }
-.closing-date { font-family:'Italiana',serif;font-style:normal;font-size:22px;color:var(--brown);display:block;margin-top:0.3rem; }
+.family-intro-text { font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:var(--brown-mid);margin-bottom:2.5rem;letter-spacing:0.05em; }
+.parents-container { display:flex;align-items:flex-start;justify-content:center;gap:24px;margin:1.5rem 0;position:relative; }
+.parents-container::after { content:'';position:absolute;left:50%;top:10%;bottom:10%;width:1px;background:linear-gradient(to bottom,transparent,rgba(201,150,58,0.3),transparent);transform:translateX(-50%); }
+.parent-side { flex:1;text-align:center;padding:1rem; }
+.parent-name-wrapper { display:flex;flex-direction:column;gap:2px; }
+.parent-given { font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px;color:var(--brown);line-height:1;letter-spacing:0.02em; }
+.parent-family { font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:19px;color:var(--brown-mid);line-height:1.2;letter-spacing:0.04em; }
+.parent-sep { margin:8px auto;height:1px;background:rgba(201,150,58,0.2);width:30px; }
+.parents-ampersand-col { display:flex;align-items:center;justify-content:center;padding-top:0.8rem; }
+.parents-and-sign { font-family:'EB Garamond',serif;font-style:italic;color:var(--gold);font-size:28px;opacity:0.8; }
+.joy-text { font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:var(--brown-mid);line-height:2.2;margin:2rem 0; }
+.couple-names-block { display:flex;align-items:center;justify-content:center;margin:1.5rem 0; }
+.bride-name-block,.groom-name-block { text-align:center;flex:1; }
+.couple-big-name { font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(52px,14vw,80px);color:var(--brown);line-height:0.95; }
+.couple-amp-center { font-family:'EB Garamond',serif;font-style:italic;color:var(--gold);font-size:clamp(28px,7vw,44px);padding:0 0.4rem;flex-shrink:0;align-self:center;margin-bottom:1rem; }
+.hebrew-name { font-family:'EB Garamond',serif;font-size:20px;color:var(--gold);letter-spacing:0.05em;margin-top:0.3rem;direction:rtl; }
+.hebrew-name-fr { font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--brown-mid);margin-top:0.3rem; }
+.closing-text { font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:var(--brown-mid);line-height:2.2; }
+.closing-date { font-family:'Cormorant Garamond',serif;font-style:normal;font-size:22px;color:var(--brown);display:block;margin-top:0.3rem; }
+.pensee-text { font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:var(--brown-mid);line-height:2;letter-spacing:0.04em;opacity:0.8; }
+.pensee-zl { color:var(--gold); }
 
 /* LIEU */
 #lieu { background:var(--cream); }
 .timeline { margin:3rem auto 3.5rem;max-width:340px;text-align:left; }
 .tl-item { display:grid;grid-template-columns:80px 1px 1fr;gap:0 24px;margin-bottom:36px;align-items:start;position:relative; }
 .tl-item:not(:last-child) .tl-connector { position:absolute;left:calc(80px + 24px - 0.5px);top:28px;bottom:-36px;width:1px;background:linear-gradient(to bottom,rgba(201,150,58,0.4),transparent); }
-.tl-time { font-family:'Italiana',serif;font-size:32px;color:var(--gold);text-align:right;line-height:1; }
+.tl-time { font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold);text-align:right;line-height:1; }
 .tl-dot-col { display:flex;flex-direction:column;align-items:center;padding-top:6px; }
 .tl-dot { width:10px;height:10px;border-radius:50%;border:1.5px solid var(--gold);background:var(--cream);display:flex;align-items:center;justify-content:center; }
 .tl-dot-inner { width:4px;height:4px;border-radius:50%;background:var(--gold); }
 .tl-info { padding-top:4px; }
 .tl-event { font-size:11px;letter-spacing:0.4em;text-transform:uppercase;color:var(--brown);font-weight:400;margin-bottom:3px; }
 .tl-detail { font-size:11px;color:var(--brown-mid); }
-
 .venue-card { background:var(--brown);padding:3rem 2rem;position:relative;margin-top:1rem;max-width:380px;margin-left:auto;margin-right:auto; }
 .venue-card::before { content:'';position:absolute;top:8px;left:8px;right:-8px;bottom:-8px;background:var(--gold);z-index:-1; }
 .venue-label { font-size:8px;letter-spacing:0.5em;color:var(--sand);text-transform:uppercase;margin-bottom:1rem;display:block; }
-.venue-name { font-family:'Italiana',serif;font-size:52px;color:var(--cream);line-height:0.95;margin-bottom:1.2rem; }
+.venue-name { font-family:'Cormorant Garamond',serif;font-weight:300;font-size:52px;color:var(--cream);line-height:0.95;margin-bottom:1.2rem; }
 .venue-address { font-size:12px;letter-spacing:0.15em;color:var(--sand);line-height:2;margin-bottom:2rem; }
 .action-btns { display:flex;flex-direction:column;gap:10px; }
-
-.btn-nav, .btn-calendar {
-  display:inline-flex;align-items:center;justify-content:center;gap:12px;
-  padding:14px 24px;font-family:'Jost',sans-serif;font-size:9px;
-  letter-spacing:0.4em;text-transform:uppercase;text-decoration:none;
-  cursor:pointer;border:none;font-weight:400;transition:all 0.3s;width:100%;
-  position:relative;overflow:hidden;
-}
-.btn-nav { background:#05C8F7;color:#1A1A1A; }
-.btn-nav:hover { background:#00B4E0;transform:translateX(4px); }
+.btn-action { display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:14px 24px;font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.4em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;font-weight:400;transition:all 0.3s;width:100%;position:relative;overflow:hidden; }
+.btn-waze { background:#05C8F7;color:#1A1A1A; }
+.btn-waze:hover { background:#00B4E0;transform:translateX(4px); }
 .btn-maps { background:transparent;border:1px solid rgba(212,180,131,0.4);color:var(--sand); }
 .btn-maps:hover { background:rgba(212,180,131,0.1);transform:translateX(4px); }
 .btn-calendar { background:var(--gold);color:var(--brown); }
 .btn-calendar:hover { background:var(--gold-light);transform:translateX(4px); }
-
-/* Effet shine boutons */
-.btn-nav::after,.btn-maps::after,.btn-calendar::after { content:'';position:absolute;top:-50%;left:-60%;width:40%;height:200%;background:rgba(255,255,255,0.2);transform:skewX(-20deg);transition:left 0.6s ease; }
-.btn-nav:hover::after,.btn-maps:hover::after,.btn-calendar:hover::after { left:120%; }
+.btn-action::after { content:'';position:absolute;top:-50%;left:-60%;width:40%;height:200%;background:rgba(255,255,255,0.2);transform:skewX(-20deg);transition:left 0.6s ease; }
+.btn-action:hover::after { left:120%; }
 
 /* RSVP */
 #rsvp { background:var(--brown);position:relative;overflow:hidden; }
@@ -200,8 +171,7 @@ section { width:100%;padding:7rem 2rem; }
 #rsvp .eyebrow { color:var(--gold); }
 #rsvp .section-title { color:var(--cream); }
 #rsvp .section-title em { color:var(--gold-light); }
-.rsvp-deadline { font-family:'Libre Baskerville',serif;font-style:italic;font-size:13px;color:var(--sand);margin-top:0.5rem;margin-bottom:3rem;opacity:.8; }
-
+.rsvp-deadline { font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:var(--sand);margin-top:0.5rem;margin-bottom:3rem;opacity:.8; }
 .fg { margin-bottom:28px;text-align:left; }
 .fl { display:block;font-size:7px;letter-spacing:0.5em;color:var(--gold);text-transform:uppercase;margin-bottom:10px; }
 .fi,.fta { width:100%;background:transparent;border:none;border-bottom:1px solid rgba(201,150,58,0.25);color:var(--cream);font-family:'Jost',sans-serif;font-size:14px;font-weight:300;padding:10px 0;outline:none;transition:border-color 0.3s; }
@@ -209,34 +179,31 @@ section { width:100%;padding:7rem 2rem; }
 .fi:focus,.fta:focus { border-bottom-color:var(--gold); }
 .fta { height:80px;resize:none;border:1px solid rgba(201,150,58,0.25);padding:12px;margin-top:4px; }
 .fta:focus { border-color:rgba(201,150,58,0.5); }
-
 .radio-group { display:flex;gap:10px;flex-wrap:wrap;margin-top:8px; }
 .radio-pill input[type="radio"] { display:none; }
 .radio-pill label { display:block;padding:8px 18px;border:1px solid rgba(201,150,58,0.3);color:rgba(212,180,131,0.6);font-size:10px;letter-spacing:0.2em;cursor:pointer;transition:all 0.25s;user-select:none; }
 .radio-pill input[type="radio"]:checked + label { background:var(--gold);border-color:var(--gold);color:var(--brown); }
 .radio-pill label:hover { border-color:var(--gold);color:var(--gold); }
-
 .number-input { display:flex;align-items:center;border-bottom:1px solid rgba(201,150,58,0.25);width:fit-content; }
 .num-btn { width:44px;height:44px;background:transparent;border:none;color:var(--gold);font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity 0.2s; }
 .num-btn:hover { opacity:.7; }
-.num-display { font-family:'Italiana',serif;font-size:24px;color:var(--cream);min-width:40px;text-align:center; }
-
+.num-display { font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--cream);min-width:40px;text-align:center; }
 #bloc-nombre { display:none;margin-top:20px; }
-
 .submit-btn { width:100%;padding:22px;background:var(--gold);border:none;color:var(--brown);font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.5em;text-transform:uppercase;font-weight:500;cursor:pointer;margin-top:1rem;transition:all 0.3s;position:relative;overflow:hidden; }
 .submit-btn::after { content:'';position:absolute;inset:0;background:rgba(255,255,255,0.15);transform:translateX(-100%);transition:transform 0.4s; }
 .submit-btn:hover::after { transform:translateX(0); }
-
 #rsvp-confirm { display:none;padding:3rem 0;animation:fadeUp 0.6s both; }
 .confirm-icon { font-size:40px;display:block;margin-bottom:1.5rem;animation:pop 0.5s cubic-bezier(0.34,1.56,0.64,1) both; }
 @keyframes pop { from{transform:scale(0)} to{transform:scale(1)} }
-.confirm-title { font-family:'Italiana',serif;font-size:56px;color:var(--cream);margin-bottom:0.5rem; }
-.confirm-sub { font-family:'Libre Baskerville',serif;font-style:italic;font-size:14px;color:var(--sand); }
+.confirm-title { font-family:'Cormorant Garamond',serif;font-size:56px;color:var(--cream);margin-bottom:0.5rem; }
+.confirm-sub { font-family:'EB Garamond',serif;font-style:italic;font-size:14px;color:var(--sand); }
+.spinner { display:inline-block;width:16px;height:16px;border:2px solid rgba(58,42,20,0.3);border-top-color:var(--brown);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-left:8px; }
+@keyframes spin { to{transform:rotate(360deg)} }
 
 /* FOOTER */
 footer { background:#120D06;padding:3rem 2rem;text-align:center; }
-.footer-names { font-family:'Italiana',serif;font-size:42px;color:var(--cream);margin-bottom:0.5rem; }
-.footer-names em { font-family:'Libre Baskerville',serif;font-style:italic;color:var(--gold);font-size:0.7em; }
+.footer-names { font-family:'Cormorant Garamond',serif;font-weight:300;font-size:42px;color:var(--cream);margin-bottom:0.5rem; }
+.footer-names em { font-family:'EB Garamond',serif;font-style:italic;color:var(--gold);font-size:0.7em; }
 .footer-date { font-size:9px;letter-spacing:0.5em;color:var(--brown-mid);text-transform:uppercase; }
 .footer-heb { font-size:11px;color:rgba(201,150,58,0.4);margin-top:1.5rem; }
 
@@ -247,9 +214,17 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
 .reveal-delay-2 { transition-delay:.2s; }
 .reveal-delay-3 { transition-delay:.35s; }
 
-/* SPINNER */
-.spinner { display:inline-block;width:16px;height:16px;border:2px solid rgba(58,42,20,0.3);border-top-color:var(--brown);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-left:8px; }
-@keyframes spin { to{transform:rotate(360deg)} }
+/* MUSIC PLAYER */
+#music-player { position:fixed;bottom:24px;right:24px;z-index:200;display:flex;align-items:center;gap:12px;background:rgba(58,42,20,0.92);backdrop-filter:blur(12px);border:1px solid rgba(201,150,58,0.35);padding:12px 18px;transform:translateY(100px);opacity:0;transition:transform 0.6s cubic-bezier(0.34,1.2,0.64,1),opacity 0.5s ease; }
+#music-player.visible { transform:translateY(0);opacity:1; }
+.music-btn { width:36px;height:36px;border-radius:50%;border:1px solid rgba(201,150,58,0.5);background:transparent;color:var(--gold);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all 0.3s;flex-shrink:0; }
+.music-btn:hover { background:var(--gold);color:var(--brown); }
+.music-info { display:flex;flex-direction:column;gap:2px; }
+.music-title { font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--sand); }
+.music-bar { display:flex;gap:3px;align-items:flex-end;height:16px; }
+.music-bar span { width:3px;background:var(--gold);border-radius:1px;animation:bar-bounce var(--d,.8s) ease-in-out infinite alternate; }
+@keyframes bar-bounce { from{height:3px;opacity:0.4} to{height:14px;opacity:1} }
+.music-bar.paused span { animation-play-state:paused; }
 
 /* MOBILE */
 @media (max-width:480px) {
@@ -261,75 +236,32 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
   section { padding:5rem 1.4rem; }
   .hero-content { padding:1rem 1.2rem; }
   .hero-names { font-size:clamp(60px,20vw,110px); }
-  .hero-date { font-size:clamp(14px,4vw,18px); }
   .cd-unit { min-width:52px;padding:12px 10px; }
   .cd-num { font-size:26px; }
   .cd-label { font-size:6px;letter-spacing:.25em; }
   .countdown { gap:1px; }
   .section-title { font-size:clamp(36px,11vw,60px); }
-  .couple-big { font-size:clamp(56px,17vw,88px); }
-  .hebrew-verse { font-size:14px; }
-  .joy-text,.closing-text { font-size:13px; }
-  .timeline { max-width:100%; }
-  .tl-time { font-size:26px; }
+  .couple-big-name { font-size:clamp(44px,13vw,68px); }
   .section-inner { max-width:100%; }
   .venue-card { padding:2rem 1.4rem; }
-  .venue-name { font-size:42px; }
-  .btn-nav,.btn-maps,.btn-calendar { padding:18px 20px;font-size:10px;min-height:52px; }
-  .submit-btn { padding:22px;min-height:56px;font-size:10px; }
-  .scroll-cta { margin-top:2rem; }
   .venue-card::before { right:-4px;bottom:-4px; }
+  .venue-name { font-size:42px; }
+  .parents-container { gap:8px; }
+  .parent-given { font-size:22px; }
+  .parent-family { font-size:17px; }
+  #music-player { bottom:16px;right:16px;padding:10px 14px; }
 }
 @media (max-width:360px) {
   .intro-title { font-size:66px; }
   .cd-unit { min-width:46px;padding:10px 7px; }
   .cd-num { font-size:21px; }
 }
-
-/* PARENTS BLOC */
-.family-intro-text { font-family:'Libre Baskerville',serif;font-style:italic;font-size:14px;color:var(--brown-mid);margin-bottom:2rem;letter-spacing:0.05em; }
-.parents-duo { display:flex;align-items:flex-start;justify-content:center;gap:0;margin:1.5rem 0; }
-.parent-side { flex:1;text-align:center;padding:0 1rem; }
-.parent-label { font-size:8px;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem; }
-.parent-name { display:block;font-family:'Italiana',serif;font-size:22px;color:var(--brown);line-height:1.3; }
-.parents-and { font-family:'Libre Baskerville',serif;font-style:italic;color:var(--gold);font-size:24px;padding:0 0.5rem;margin-top:1.6rem;flex-shrink:0; }
-
-/* NOMS COUPLE HÉBREU */
-.couple-names-block { display:flex;align-items:center;justify-content:center;gap:0;margin:1.5rem 0; }
-.bride-name-block,.groom-name-block { text-align:center;flex:1; }
-.couple-big-name { font-family:'Italiana',serif;font-size:clamp(52px,14vw,80px);color:var(--brown);line-height:0.95; }
-.couple-amp-center { font-family:'Libre Baskerville',serif;font-style:italic;color:var(--gold);font-size:clamp(28px,7vw,44px);padding:0 0.4rem;flex-shrink:0;align-self:center;margin-bottom:1rem; }
-.hebrew-name { font-family:'Libre Baskerville',serif;font-size:20px;color:var(--gold);letter-spacing:0.05em;margin-top:0.3rem;direction:rtl; }
-.hebrew-name-fr { font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--brown-mid);margin-top:0.3rem; }
-
-/* MUSIC PLAYER */
-#music-player {
-  position:fixed;bottom:24px;right:24px;z-index:200;
-  display:flex;align-items:center;gap:12px;
-  background:rgba(58,42,20,0.92);backdrop-filter:blur(12px);
-  border:1px solid rgba(201,150,58,0.35);
-  padding:12px 18px;
-  transform:translateY(100px);opacity:0;
-  transition:transform 0.6s cubic-bezier(0.34,1.2,0.64,1),opacity 0.5s ease;
-}
-#music-player.visible { transform:translateY(0);opacity:1; }
-.music-btn { width:36px;height:36px;border-radius:50%;border:1px solid rgba(201,150,58,0.5);background:transparent;color:var(--gold);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all 0.3s;flex-shrink:0; }
-.music-btn:hover { background:var(--gold);color:var(--brown); }
-.music-info { display:flex;flex-direction:column;gap:2px; }
-.music-title { font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--sand); }
-.music-bar { display:flex;gap:3px;align-items:flex-end;height:16px; }
-.music-bar span { width:3px;background:var(--gold);border-radius:1px;animation:bar-bounce var(--d,0.8s) ease-in-out infinite alternate; }
-@keyframes bar-bounce { from{height:3px;opacity:0.4} to{height:14px;opacity:1} }
-.music-bar.paused span { animation-play-state:paused; }
-@media(max-width:480px) { #music-player{bottom:16px;right:16px;padding:10px 14px;} }
 </style>
 </head>
 <body>
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursor-ring"></div>
-
-<!-- PÉTALES -->
 <div id="petals-container"></div>
 
 <!-- INTRO -->
@@ -345,7 +277,6 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
     <div class="ray" style="transform:rotate(270deg)"></div>
     <div class="ray" style="transform:rotate(315deg)"></div>
   </div>
-  <!-- Fireflies intro -->
   <div id="ff-intro"></div>
   <div class="intro-content">
     <p class="intro-label">Save the Date</p>
@@ -358,24 +289,19 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
   </div>
 </div>
 
-<!-- SITE -->
+<!-- SITE PRINCIPAL -->
 <div id="main-site">
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-sky"></div>
     <div class="stars" id="stars"></div>
-    <!-- Étoile filante -->
     <div class="shooting-star" id="shooting" style="top:15%;left:20%;transform:rotate(25deg)"></div>
     <div class="hero-sun"></div>
-    <div class="hero-sun-halo hero-sun-halo"></div>
+    <div class="hero-sun-halo"></div>
     <div class="hero-sun-halo hero-sun-halo2"></div>
     <div class="sun-ray-sea"></div>
-    <div class="hero-sea">
-      <div class="sea-shimmer"></div>
-      <!-- Scintillements -->
-      <div id="sparkles"></div>
-    </div>
+    <div class="hero-sea"><div class="sea-shimmer"></div><div id="sparkles"></div></div>
     <div class="palm palm-left">
       <svg width="100" height="250" viewBox="0 0 100 250" fill="none">
         <path d="M 50 250 C 52 200 54 150 48 100" stroke="#1A2A10" stroke-width="6" stroke-linecap="round"/>
@@ -399,7 +325,6 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
       </svg>
     </div>
     <div id="fireflies-hero"></div>
-
     <div class="hero-content">
       <p class="hero-eyebrow">Mariage · 18 Août 2025</p>
       <div class="hero-names">Tali<span class="amp">&amp;</span>Haïm</div>
@@ -430,26 +355,42 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
     <div class="section-inner">
       <span class="eyebrow reveal">— La Houppa —</span>
       <div class="section-divider reveal reveal-delay-1">
-        <div class="sd-line"></div><div class="sd-diamond"></div>
+        <div class="sd-line"></div>
+        <div class="sd-diamond"></div>
         <div class="sd-diamond" style="width:4px;height:4px;background:var(--gold-light)"></div>
-        <div class="sd-diamond"></div><div class="sd-line"></div>
+        <div class="sd-diamond"></div>
+        <div class="sd-line"></div>
       </div>
       <p class="hebrew-verse reveal reveal-delay-2">קוֹל שָׂשׂוֹן וְקוֹל שִׂמְחָה<br>קוֹל חָתָן וְקוֹל כַּלָּה</p>
       <p class="verse-translation reveal reveal-delay-3">La voix de la joie et l'allégresse · La voix du fiancé et de la fiancée</p>
 
-      <!-- PARENTS BLOC -->
-      <div class="families-block reveal">
+      <div class="reveal">
         <p class="family-intro-text">Avec la grâce de Hachem,</p>
-
-        <div class="parents-duo">
-          <div class="parent-side reveal reveal-delay-1">
-            <span class="parent-name">Dov Abouzdid</span>
-            <span class="parent-name">Pamela Messina</span>
+        <div class="parents-container">
+          <div class="parent-side">
+            <div class="parent-name-wrapper">
+              <span class="parent-given">Dov</span>
+              <span class="parent-family">Abouzdid</span>
+            </div>
+            <div class="parent-sep"></div>
+            <div class="parent-name-wrapper">
+              <span class="parent-given">Pamela</span>
+              <span class="parent-family">Messina</span>
+            </div>
           </div>
-          <div class="parents-and">&amp;</div>
-          <div class="parent-side reveal reveal-delay-2">
-            <span class="parent-name">James Gebai</span>
-            <span class="parent-name">Sonia Gebai</span>
+          <div class="parents-ampersand-col">
+            <span class="parents-and-sign">&amp;</span>
+          </div>
+          <div class="parent-side">
+            <div class="parent-name-wrapper">
+              <span class="parent-given">James</span>
+              <span class="parent-family">Gebai</span>
+            </div>
+            <div class="parent-sep"></div>
+            <div class="parent-name-wrapper">
+              <span class="parent-given">Sonia</span>
+              <span class="parent-family">Gebai</span>
+            </div>
           </div>
         </div>
       </div>
@@ -460,7 +401,6 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
         <div class="sd-line"></div><div class="sd-diamond"></div><div class="sd-line"></div>
       </div>
 
-      <!-- NOMS COUPLE avec hébreu -->
       <div class="couple-names-block reveal">
         <div class="bride-name-block">
           <div class="couple-big-name">Tali</div>
@@ -481,6 +421,14 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
       <p class="closing-text reveal reveal-delay-1">
         et vous invitent à les rejoindre<br>pour célébrer leur union le
         <span class="closing-date">Lundi 18 Août 2025</span>
+      </p>
+
+      <div class="section-divider reveal" style="margin-top:3rem;">
+        <div class="sd-line"></div><div class="sd-diamond"></div><div class="sd-line"></div>
+      </div>
+      <p class="pensee-text reveal">
+        Une pensée pour nos grands-parents bien-aimés —
+        Charly Sultan, Berte &amp; David Gebai, Antonin Messina <span class="pensee-zl">z"l</span>
       </p>
     </div>
   </section>
@@ -512,9 +460,9 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
         <p class="venue-name">Basico</p>
         <p class="venue-address">HaNivheret St 6<br>Ness Ziona, Israël</p>
         <div class="action-btns">
-          <a href="https://waze.com/ul?q=Via%20Events%20Ness%20Ziona" target="_blank" class="btn-nav">🗺 Ouvrir dans Waze</a>
-          <a href="https://maps.google.com/?cid=14027188501293095011" target="_blank" class="btn-maps btn-nav" style="background:transparent;border:1px solid rgba(212,180,131,0.4);color:var(--sand);">📍 Google Maps</a>
-          <button class="btn-calendar" onclick="addToCalendar()">📅 Bloquer la date</button>
+          <a href="https://waze.com/ul?q=Via%20Events%20Ness%20Ziona" target="_blank" class="btn-action btn-waze">🗺 Ouvrir dans Waze</a>
+          <a href="https://maps.google.com/?cid=14027188501293095011" target="_blank" class="btn-action btn-maps">📍 Google Maps</a>
+          <button class="btn-action btn-calendar" onclick="addToCalendar()">📅 Bloquer la date</button>
         </div>
       </div>
     </div>
@@ -526,7 +474,6 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
       <span class="eyebrow reveal">— Répondre —</span>
       <h2 class="section-title reveal reveal-delay-1">Votre <em>présence</em></h2>
       <p class="rsvp-deadline reveal reveal-delay-2">Merci de confirmer avant le 1er juillet 2025</p>
-
       <div id="rsvp-form" class="reveal reveal-delay-3">
         <div class="fg">
           <label class="fl" for="f-nom">Nom</label>
@@ -563,7 +510,6 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
         </div>
         <button class="submit-btn" id="submit-btn" onclick="submitRSVP()">Envoyer ma réponse →</button>
       </div>
-
       <div id="rsvp-confirm">
         <span class="confirm-icon">✦</span>
         <p class="confirm-title">Merci !</p>
@@ -586,9 +532,9 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
 
   <!-- MUSIC PLAYER -->
   <div id="music-player">
-    <button class="music-btn" id="music-btn" onclick="toggleMusic()" title="Musique" aria-label="Musique">
-      <svg id="icon-play" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none"><polygon points="3,1 13,7 3,13" fill="currentColor"/></svg>
-      <svg id="icon-pause" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="1" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="8.5" y="1" width="3.5" height="12" rx="1" fill="currentColor"/></svg>
+    <button class="music-btn" onclick="toggleMusic()" aria-label="Musique">
+      <svg id="icon-play" width="14" height="14" viewBox="0 0 14 14" fill="none" style="display:none"><polygon points="3,1 13,7 3,13" fill="currentColor"/></svg>
+      <svg id="icon-pause" width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="1" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="8.5" y="1" width="3.5" height="12" rx="1" fill="currentColor"/></svg>
     </button>
     <div class="music-info">
       <span class="music-title">Notre mélodie</span>
@@ -601,201 +547,181 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
       </div>
     </div>
   </div>
-  <audio id="bg-music" loop>
-    <source src="musique.mp3" type="audio/mpeg">
-  </audio>
-</div>
+  <audio id="bg-music" loop><source src="musique.mp3" type="audio/mpeg"></audio>
+
+</div><!-- /#main-site -->
 
 <script>
-/* ── CONFIG GOOGLE SHEETS ── */
+/* ─── CONFIG ─────────────────────────────────── */
 const SCRIPT_URL = 'https://script.google.com/macros/s/TON_SCRIPT_ID_ICI/exec';
 
-/* ── CURSEUR ── */
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursor-ring');
-document.addEventListener('mousemove', e => {
-  cursor.style.transform = `translate(${e.clientX-4}px,${e.clientY-4}px)`;
-  ring.style.transform = `translate(${e.clientX-16}px,${e.clientY-16}px)`;
-});
+/* ─── MUSIQUE (déclarée en premier) ──────────── */
+const bgMusic     = document.getElementById('bg-music');
+const musicPlayer = document.getElementById('music-player');
+const musicBar    = document.getElementById('music-bar');
+let musicPlaying  = false;
+let musicStarted  = false;
 
-/* ── ÉTOILES ── */
-const starsEl = document.getElementById('stars');
-for (let i = 0; i < 70; i++) {
-  const s = document.createElement('div');
-  s.className = 'star';
-  s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;opacity:${Math.random()*0.5+0.1};--dur:${Math.random()*3+2}s;animation-delay:${Math.random()*5}s;width:${Math.random()<0.2?3:2}px;height:${Math.random()<0.2?3:2}px`;
-  starsEl.appendChild(s);
-}
-
-/* ── ÉTOILE FILANTE ── */
-const ss = document.getElementById('shooting');
-function shootStar() {
-  ss.style.animation = 'none';
-  ss.style.top = (Math.random()*30+5)+'%';
-  ss.style.left = (Math.random()*40+5)+'%';
-  void ss.offsetWidth;
-  ss.style.animation = 'shooting 2s ease-out forwards';
-  setTimeout(shootStar, Math.random()*8000+6000);
-}
-setTimeout(shootStar, 3000);
-
-/* ── FIREFLIES HERO ── */
-const ffHero = document.getElementById('fireflies-hero');
-const ffColors = ['rgba(232,192,122,0.9)','rgba(255,220,100,0.8)','rgba(201,150,58,0.9)'];
-for (let i = 0; i < 12; i++) {
-  const f = document.createElement('div');
-  f.className = 'firefly';
-  const dx = (Math.random()-0.5)*200;
-  const dy = -(Math.random()*120+40);
-  f.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*70+15}%;--dur:${Math.random()*6+5}s;--delay:${Math.random()*4}s;--dx:${dx}px;--dy:${dy}px;background:${ffColors[Math.floor(Math.random()*ffColors.length)]};`;
-  ffHero.appendChild(f);
-}
-
-/* ── FIREFLIES INTRO ── */
-const ffIntro = document.getElementById('ff-intro');
-for (let i = 0; i < 8; i++) {
-  const f = document.createElement('div');
-  f.className = 'firefly';
-  f.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*80+10}%;--dur:${Math.random()*5+6}s;--delay:${Math.random()*3}s;--dx:${(Math.random()-0.5)*160}px;--dy:${-(Math.random()*100+30)}px;`;
-  ffIntro.appendChild(f);
-}
-
-/* ── SCINTILLEMENTS MER ── */
-const sparklesEl = document.getElementById('sparkles');
-for (let i = 0; i < 15; i++) {
-  const sp = document.createElement('div');
-  sp.className = 'sea-sparkle';
-  const size = Math.random()*3+1;
-  sp.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*80}%;width:${size}px;height:${size}px;--dur:${Math.random()*2+1}s;animation-delay:${Math.random()*3}s;`;
-  sparklesEl.appendChild(sp);
-}
-
-/* ── PÉTALES ── */
-const colors = ['rgba(201,150,58,0.5)','rgba(232,192,122,0.45)','rgba(255,220,160,0.4)','rgba(212,180,131,0.5)'];
-for (let i = 0; i < 18; i++) {
-  const p = document.createElement('div');
-  p.className = 'petal';
-  const size = Math.random()*6+5;
-  p.style.cssText = `left:${Math.random()*100}%;width:${size}px;height:${size*1.5}px;background:${colors[Math.floor(Math.random()*colors.length)]};--dur:${Math.random()*5+6}s;--delay:${Math.random()*10}s;--drift:${(Math.random()-0.5)*80}px;`;
-  document.getElementById('petals-container').appendChild(p);
-}
-
-/* ── INTRO → SITE ── */
-function enterSite() {
-  document.getElementById('page-intro').classList.add('slide-up');
-  document.getElementById('main-site').classList.add('visible');
-  setTimeout(() => { document.getElementById('page-intro').style.pointerEvents = 'none'; }, 1200);
-  // Lance la musique dès le clic
+function startMusic() {
+  if (musicStarted) return;
   bgMusic.volume = 0;
   bgMusic.play().then(() => {
-    let vol = 0;
-    const fadeIn = setInterval(() => {
-      vol = Math.min(vol + 0.03, 0.45);
-      bgMusic.volume = vol;
-      if (vol >= 0.45) clearInterval(fadeIn);
-    }, 80);
-    musicPlaying = true;
     musicStarted = true;
-    document.getElementById('icon-play').style.display = 'none';
+    musicPlaying = true;
+    document.getElementById('icon-play').style.display  = 'none';
     document.getElementById('icon-pause').style.display = 'block';
     musicBar.classList.remove('paused');
     musicPlayer.classList.add('visible');
-  }).catch(() => {
-    musicPlayer.classList.add('visible');
-  });
+    let v = 0;
+    const t = setInterval(() => { v = Math.min(v + 0.02, 0.45); bgMusic.volume = v; if (v >= 0.45) clearInterval(t); }, 100);
+  }).catch(() => { musicPlayer.classList.add('visible'); });
 }
-
-/* ── COUNTDOWN ── */
-const wedding = new Date('2026-08-18T18:00:00');
-function tick() {
-  const diff = wedding - new Date();
-  const pad = n => String(Math.max(0,Math.floor(n))).padStart(2,'0');
-  if (diff <= 0) { ['cd-d','cd-h','cd-m','cd-s'].forEach(id => document.getElementById(id).textContent='00'); return; }
-  document.getElementById('cd-d').textContent = pad(diff/86400000);
-  document.getElementById('cd-h').textContent = pad(diff%86400000/3600000);
-  document.getElementById('cd-m').textContent = pad(diff%3600000/60000);
-  document.getElementById('cd-s').textContent = pad(diff%60000/1000);
-}
-tick(); setInterval(tick,1000);
-
-/* ── NOMBRE DE PERSONNES ── */
-let nbPersonnes = 1;
-function toggleNombre(visible) {
-  document.getElementById('bloc-nombre').style.display = visible ? 'block' : 'none';
-  nbPersonnes = visible ? 1 : 0;
-  document.getElementById('num-pers').textContent = nbPersonnes;
-}
-function changeNum(delta) {
-  nbPersonnes = Math.max(1, Math.min(20, nbPersonnes + delta));
-  document.getElementById('num-pers').textContent = nbPersonnes;
-}
-
-/* ── CALENDRIER ── */
-function addToCalendar() {
-  const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Tali & Haïm//FR','BEGIN:VEVENT',
-    'UID:tali-haim-mariage-2025@wedding','DTSTAMP:20250101T000000Z',
-    'DTSTART:20260818T150000Z','DTEND:20260818T230000Z',
-    'SUMMARY:💍 Mariage Tali & Haïm',
-    'DESCRIPTION:Houppa à 18h - Kabalat Panim à 19h',
-    'LOCATION:Basico\\, HaNivheret St 6\\, Ness Ziona\\, Israël',
-    'END:VEVENT','END:VCALENDAR'].join('\r\n');
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));
-  a.download = 'mariage-tali-haim.ics'; a.click();
-}
-
-/* ── RSVP → GOOGLE SHEETS ── */
-async function submitRSVP() {
-  const nom = document.getElementById('f-nom').value.trim();
-  const prenom = document.getElementById('f-prenom').value.trim();
-  const presenceEl = document.querySelector('input[name="presence"]:checked');
-  const msg = document.getElementById('f-msg').value.trim();
-  if (!nom || !prenom) { alert('Merci de renseigner votre nom et prénom.'); return; }
-  if (!presenceEl) { alert('Merci d\'indiquer votre présence.'); return; }
-  const presence = presenceEl.value;
-  const personnes = presence === 'oui' ? nbPersonnes : 0;
-  const btn = document.getElementById('submit-btn');
-  btn.disabled = true;
-  btn.innerHTML = 'Envoi en cours… <span class="spinner"></span>';
-  const params = new URLSearchParams({ nom, prenom, presence, personnes, message: msg, timestamp: new Date().toLocaleString('fr-FR') });
-  try { await fetch(SCRIPT_URL + '?' + params.toString(), { method:'GET', mode:'no-cors' }); } catch(e) {}
-  const form = document.getElementById('rsvp-form');
-  form.style.opacity = '0'; form.style.transition = 'opacity 0.5s';
-  setTimeout(() => { form.style.display='none'; document.getElementById('rsvp-confirm').style.display='block'; }, 500);
-}
-
-
-/* ── MUSIQUE AU SCROLL ── */
-const bgMusic = document.getElementById('bg-music');
-const musicPlayer = document.getElementById('music-player');
-const musicBtn = document.getElementById('music-btn');
-const musicBar = document.getElementById('music-bar');
-let musicStarted = false;
-let musicPlaying = false;
 
 function toggleMusic() {
   if (musicPlaying) {
-    bgMusic.pause();
-    musicPlaying = false;
-    document.getElementById('icon-play').style.display = 'block';
+    bgMusic.pause(); musicPlaying = false;
+    document.getElementById('icon-play').style.display  = 'block';
     document.getElementById('icon-pause').style.display = 'none';
     musicBar.classList.add('paused');
   } else {
-    bgMusic.play().catch(()=>{});
+    bgMusic.play().catch(() => {});
     musicPlaying = true;
-    document.getElementById('icon-play').style.display = 'none';
+    document.getElementById('icon-play').style.display  = 'none';
     document.getElementById('icon-pause').style.display = 'block';
     musicBar.classList.remove('paused');
   }
 }
 
-// Musique lancée via enterSite()
+/* ─── CURSEUR ────────────────────────────────── */
+const cursor = document.getElementById('cursor');
+const ring   = document.getElementById('cursor-ring');
+document.addEventListener('mousemove', e => {
+  cursor.style.transform = `translate(${e.clientX-4}px,${e.clientY-4}px)`;
+  ring.style.transform   = `translate(${e.clientX-16}px,${e.clientY-16}px)`;
+});
 
-/* ── REVEAL ── */
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); observer.unobserve(e.target); } });
+/* ─── ÉTOILES ────────────────────────────────── */
+const starsEl = document.getElementById('stars');
+for (let i = 0; i < 70; i++) {
+  const s = document.createElement('div'); s.className = 'star';
+  s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;opacity:${Math.random()*0.5+0.1};--dur:${Math.random()*3+2}s;animation-delay:${Math.random()*5}s;width:${Math.random()<0.2?3:2}px;height:${Math.random()<0.2?3:2}px`;
+  starsEl.appendChild(s);
+}
+
+/* ─── ÉTOILE FILANTE ─────────────────────────── */
+const ss = document.getElementById('shooting');
+function shootStar() {
+  ss.style.animation = 'none'; ss.style.top = (Math.random()*30+5)+'%'; ss.style.left = (Math.random()*40+5)+'%';
+  void ss.offsetWidth; ss.style.animation = 'shooting 2s ease-out forwards';
+  setTimeout(shootStar, Math.random()*8000+6000);
+}
+setTimeout(shootStar, 3000);
+
+/* ─── FIREFLIES ──────────────────────────────── */
+const ffColors = ['rgba(232,192,122,0.9)','rgba(255,220,100,0.8)','rgba(201,150,58,0.9)'];
+['fireflies-hero','ff-intro'].forEach((id, idx) => {
+  const el = document.getElementById(id);
+  const n  = idx === 0 ? 12 : 8;
+  for (let i = 0; i < n; i++) {
+    const f = document.createElement('div'); f.className = 'firefly';
+    f.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*70+15}%;--dur:${Math.random()*6+5}s;--delay:${Math.random()*4}s;--dx:${(Math.random()-0.5)*200}px;--dy:${-(Math.random()*120+40)}px;background:${ffColors[Math.floor(Math.random()*3)]}`;
+    el.appendChild(f);
+  }
+});
+
+/* ─── SCINTILLEMENTS MER ─────────────────────── */
+const sparklesEl = document.getElementById('sparkles');
+for (let i = 0; i < 15; i++) {
+  const sp = document.createElement('div'); sp.className = 'sea-sparkle';
+  const sz = Math.random()*3+1;
+  sp.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*80}%;width:${sz}px;height:${sz}px;--dur:${Math.random()*2+1}s;animation-delay:${Math.random()*3}s`;
+  sparklesEl.appendChild(sp);
+}
+
+/* ─── PÉTALES ────────────────────────────────── */
+const petalCols = ['rgba(201,150,58,0.5)','rgba(232,192,122,0.45)','rgba(255,220,160,0.4)','rgba(212,180,131,0.5)'];
+for (let i = 0; i < 18; i++) {
+  const p = document.createElement('div'); p.className = 'petal';
+  const sz = Math.random()*6+5;
+  p.style.cssText = `left:${Math.random()*100}%;width:${sz}px;height:${sz*1.5}px;background:${petalCols[Math.floor(Math.random()*4)]};--dur:${Math.random()*5+6}s;--delay:${Math.random()*10}s;--drift:${(Math.random()-0.5)*80}px`;
+  document.getElementById('petals-container').appendChild(p);
+}
+
+/* ─── INTRO → SITE ───────────────────────────── */
+function enterSite() {
+  document.getElementById('page-intro').classList.add('slide-up');
+  document.getElementById('main-site').classList.add('visible');
+  setTimeout(() => { document.getElementById('page-intro').style.pointerEvents = 'none'; }, 1200);
+  startMusic();
+}
+
+/* ─── MUSIQUE AU SCROLL ──────────────────────── */
+window.addEventListener('scroll', function onScroll() {
+  startMusic();
+  window.removeEventListener('scroll', onScroll);
+}, { passive: true });
+
+/* ─── COUNTDOWN — 18 août 2025 à 18h ─────────── */
+const weddingDate = new Date('2026-08-18T18:00:00');
+function tick() {
+  const diff = weddingDate - new Date();
+  const pad  = n => String(Math.max(0, Math.floor(n))).padStart(2, '0');
+  if (diff <= 0) { ['cd-d','cd-h','cd-m','cd-s'].forEach(id => document.getElementById(id).textContent = '00'); return; }
+  document.getElementById('cd-d').textContent = pad(diff / 86400000);
+  document.getElementById('cd-h').textContent = pad(diff % 86400000 / 3600000);
+  document.getElementById('cd-m').textContent = pad(diff % 3600000 / 60000);
+  document.getElementById('cd-s').textContent = pad(diff % 60000 / 1000);
+}
+tick(); setInterval(tick, 1000);
+
+/* ─── NOMBRE DE PERSONNES ────────────────────── */
+let nbPersonnes = 1;
+function toggleNombre(v) {
+  document.getElementById('bloc-nombre').style.display = v ? 'block' : 'none';
+  nbPersonnes = v ? 1 : 0;
+  document.getElementById('num-pers').textContent = nbPersonnes;
+}
+function changeNum(d) {
+  nbPersonnes = Math.max(1, Math.min(20, nbPersonnes + d));
+  document.getElementById('num-pers').textContent = nbPersonnes;
+}
+
+/* ─── CALENDRIER ─────────────────────────────── */
+function addToCalendar() {
+  const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Tali & Haïm//FR','BEGIN:VEVENT',
+    'UID:tali-haim-mariage-2025@wedding','DTSTAMP:20250101T000000Z',
+    'DTSTART:20250818T150000Z','DTEND:20250818T230000Z',
+    'SUMMARY:💍 Mariage Tali & Haïm','DESCRIPTION:Houppa à 18h - Kabalat Panim à 19h',
+    'LOCATION:Basico\\, HaNivheret St 6\\, Ness Ziona\\, Israël',
+    'END:VEVENT','END:VCALENDAR'].join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([ics], { type:'text/calendar' }));
+  a.download = 'mariage-tali-haim.ics'; a.click();
+}
+
+/* ─── RSVP ───────────────────────────────────── */
+async function submitRSVP() {
+  const nom      = document.getElementById('f-nom').value.trim();
+  const prenom   = document.getElementById('f-prenom').value.trim();
+  const pEl      = document.querySelector('input[name="presence"]:checked');
+  const msg      = document.getElementById('f-msg').value.trim();
+  if (!nom || !prenom) { alert('Merci de renseigner votre nom et prénom.'); return; }
+  if (!pEl)            { alert("Merci d'indiquer votre présence."); return; }
+  const btn = document.getElementById('submit-btn');
+  btn.disabled  = true;
+  btn.innerHTML = 'Envoi en cours… <span class="spinner"></span>';
+  const params = new URLSearchParams({ nom, prenom, presence: pEl.value, personnes: pEl.value === 'oui' ? nbPersonnes : 0, message: msg, timestamp: new Date().toLocaleString('fr-FR') });
+  try { await fetch(SCRIPT_URL + '?' + params, { method:'GET', mode:'no-cors' }); } catch(e) {}
+  const form = document.getElementById('rsvp-form');
+  form.style.opacity = '0'; form.style.transition = 'opacity 0.5s';
+  setTimeout(() => { form.style.display = 'none'; document.getElementById('rsvp-confirm').style.display = 'block'; }, 500);
+}
+
+/* ─── REVEAL ─────────────────────────────────── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); } });
 }, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
