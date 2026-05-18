@@ -116,15 +116,50 @@ section { width:100%;padding:7rem 2rem; }
 .hebrew-verse { font-family:'EB Garamond',serif;font-style:italic;font-size:18px;color:var(--gold);direction:rtl;line-height:2;margin-bottom:0.5rem; }
 .verse-translation { font-size:10px;letter-spacing:0.3em;color:var(--brown-mid);margin-bottom:3rem;text-transform:uppercase; }
 .family-intro-text { font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:var(--brown-mid);margin-bottom:2.5rem;letter-spacing:0.05em; }
-.parents-container { display:flex;align-items:flex-start;justify-content:center;gap:24px;margin:1.5rem 0;position:relative; }
-.parents-container::after { content:'';position:absolute;left:50%;top:10%;bottom:10%;width:1px;background:linear-gradient(to bottom,transparent,rgba(201,150,58,0.3),transparent);transform:translateX(-50%); }
-.parent-side { flex:1;text-align:center;padding:1rem; }
-.parent-name-wrapper { display:flex;flex-direction:column;gap:2px; }
-.parent-given { font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px;color:var(--brown);line-height:1;letter-spacing:0.02em; }
-.parent-family { font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:19px;color:var(--brown-mid);line-height:1.2;letter-spacing:0.04em; }
-.parent-sep { margin:8px auto;height:1px;background:rgba(201,150,58,0.2);width:30px; }
+
+/* PARENTS — style capture d'écran : une ligne par personne, italique, serif, couleur sable */
+.parents-container {
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  gap:24px;
+  margin:1.5rem 0;
+  position:relative;
+}
+.parents-container::after {
+  content:'';
+  position:absolute;
+  left:50%;
+  top:5%;
+  bottom:5%;
+  width:1px;
+  background:linear-gradient(to bottom,transparent,rgba(201,150,58,0.3),transparent);
+  transform:translateX(-50%);
+}
+.parent-side {
+  flex:1;
+  text-align:center;
+  padding:0.8rem 0.5rem;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+/* Chaque ligne de nom : une seule ligne, italique, serif, couleur sable */
+.parent-line {
+  font-family:'EB Garamond',serif;
+  font-style:italic;
+  font-size:17px;
+  color:var(--sand);
+  line-height:2.1;
+  letter-spacing:0.03em;
+  white-space:nowrap;
+}
+@media (max-width:420px) {
+  .parent-line { font-size:14px; white-space:normal; }
+}
 .parents-ampersand-col { display:flex;align-items:center;justify-content:center;padding-top:0.8rem; }
 .parents-and-sign { font-family:'EB Garamond',serif;font-style:italic;color:var(--gold);font-size:28px;opacity:0.8; }
+
 .joy-text { font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:var(--brown-mid);line-height:2.2;margin:2rem 0; }
 .couple-names-block { display:flex;align-items:center;justify-content:center;margin:1.5rem 0; }
 .bride-name-block,.groom-name-block { text-align:center;flex:1; }
@@ -214,7 +249,7 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
 .reveal-delay-2 { transition-delay:.2s; }
 .reveal-delay-3 { transition-delay:.35s; }
 
-/* MUSIC BUTTON — simple cœur */
+/* MUSIC BUTTON */
 #music-player {
   position: fixed;
   bottom: 24px;
@@ -266,8 +301,7 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
   .venue-card::before { right:-4px;bottom:-4px; }
   .venue-name { font-size:42px; }
   .parents-container { gap:8px; }
-  .parent-given { font-size:22px; }
-  .parent-family { font-size:17px; }
+  .parent-line { font-size:14px; white-space:normal; }
   #music-player { bottom:16px;right:16px; }
 }
 @media (max-width:360px) {
@@ -385,46 +419,21 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
 
       <div class="reveal">
         <p class="family-intro-text">Avec la grâce de Hachem,</p>
+
+        <!-- PARENTS — style capture d'écran : une ligne par personne, italique serif sable -->
         <div class="parents-container">
           <div class="parent-side">
-            <div class="parent-name-wrapper">
-              <span class="parent-given">Dov</span>
-              <span class="parent-family">Abouzdid</span>
-            </div>
-            <div class="parent-sep"></div>
-            <div class="parent-name-wrapper">
-              <span class="parent-given">Pamela</span>
-              <span class="parent-family">Messina</span>
-            </div>
-            <div class="parent-sep"></div>
-            <div class="parent-name-wrapper">
-              <span class="parent-given">Michelle</span>
-              <span class="parent-family">Lea</span>
-            </div>
-            <div class="parent-sep"></div>
-            <div class="parent-name-wrapper">
-              <span class="parent-given">Guy Chimone</span>
-              <span class="parent-family">&amp; Brigitte Rachel</span>
-            </div>
+            <span class="parent-line">Dov Abouzdid</span>
+            <span class="parent-line">Pamela Messina</span>
+            <span class="parent-line">Michelle Lea</span>
+            <span class="parent-line">Guy Chimone &amp; Brigitte Rachel</span>
           </div>
-          <div class="parents-ampersand-col">
-            <span class="parents-and-sign">&amp;</span>
+          
           </div>
           <div class="parent-side">
-            <div class="parent-name-wrapper">
-              <span class="parent-given">James</span>
-              <span class="parent-family">Gebai</span>
-            </div>
-            <div class="parent-sep"></div>
-            <div class="parent-name-wrapper">
-              <span class="parent-given">Sonia</span>
-              <span class="parent-family">Gebai</span>
-            </div>
-            <div class="parent-sep"></div>
-            <div class="parent-name-wrapper">
-              <span class="parent-given">Mme &amp; Fernand</span>
-              <span class="parent-family">Sultan</span>
-            </div>
+            <span class="parent-line">James Gebai</span>
+            <span class="parent-line">Sonia Gebai</span>
+            <span class="parent-line">Mme &amp; Fernand Sultan</span>
           </div>
         </div>
       </div>
@@ -462,7 +471,7 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
       </div>
       <p class="pensee-text reveal">
         Une pensée pour nos grands-parents bien-aimés —
-        Charly Sultan, Berte &amp; & Papy David Gebai <span class="pensee-zl">z"l</span>
+        Charly Sultan, Berte &amp; Papy David Gebai <span class="pensee-zl">z"l</span>
       </p>
     </div>
   </section>
