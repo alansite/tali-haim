@@ -214,17 +214,36 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
 .reveal-delay-2 { transition-delay:.2s; }
 .reveal-delay-3 { transition-delay:.35s; }
 
-/* MUSIC PLAYER */
-#music-player { position:fixed;bottom:24px;right:24px;z-index:200;display:flex;align-items:center;gap:12px;background:rgba(58,42,20,0.92);backdrop-filter:blur(12px);border:1px solid rgba(201,150,58,0.35);padding:12px 18px;transform:translateY(100px);opacity:0;transition:transform 0.6s cubic-bezier(0.34,1.2,0.64,1),opacity 0.5s ease; }
-#music-player.visible { transform:translateY(0);opacity:1; }
-.music-btn { width:36px;height:36px;border-radius:50%;border:1px solid rgba(201,150,58,0.5);background:transparent;color:var(--gold);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all 0.3s;flex-shrink:0; }
-.music-btn:hover { background:var(--gold);color:var(--brown); }
-.music-info { display:flex;flex-direction:column;gap:2px; }
-.music-title { font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--sand); }
-.music-bar { display:flex;gap:3px;align-items:flex-end;height:16px; }
-.music-bar span { width:3px;background:var(--gold);border-radius:1px;animation:bar-bounce var(--d,.8s) ease-in-out infinite alternate; }
-@keyframes bar-bounce { from{height:3px;opacity:0.4} to{height:14px;opacity:1} }
-.music-bar.paused span { animation-play-state:paused; }
+/* MUSIC BUTTON — simple cœur */
+#music-player {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 200;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 0.6s cubic-bezier(0.34,1.2,0.64,1), opacity 0.5s ease;
+}
+#music-player.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+.music-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  font-size: 26px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  line-height: 1;
+}
+.music-btn:hover { transform: scale(1.18); opacity: 0.85; }
+.music-btn.paused { opacity: 0.45; }
 
 /* MOBILE */
 @media (max-width:480px) {
@@ -249,7 +268,7 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
   .parents-container { gap:8px; }
   .parent-given { font-size:22px; }
   .parent-family { font-size:17px; }
-  #music-player { bottom:16px;right:16px;padding:10px 14px; }
+  #music-player { bottom:16px;right:16px; }
 }
 @media (max-width:360px) {
   .intro-title { font-size:66px; }
@@ -530,22 +549,9 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
     <p class="footer-heb">בְּשָׂשׂוֹן וּבְשִׂמְחָה</p>
   </footer>
 
-  <!-- MUSIC PLAYER -->
+  <!-- MUSIC BUTTON -->
   <div id="music-player">
-    <button class="music-btn" onclick="toggleMusic()" aria-label="Musique">
-      <svg id="icon-play" width="14" height="14" viewBox="0 0 14 14" fill="none" style="display:none"><polygon points="3,1 13,7 3,13" fill="currentColor"/></svg>
-      <svg id="icon-pause" width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="1" width="3.5" height="12" rx="1" fill="currentColor"/><rect x="8.5" y="1" width="3.5" height="12" rx="1" fill="currentColor"/></svg>
-    </button>
-    <div class="music-info">
-      <span class="music-title">Notre mélodie</span>
-      <div class="music-bar paused" id="music-bar">
-        <span style="--d:.6s;animation-delay:0s"></span>
-        <span style="--d:.8s;animation-delay:.1s"></span>
-        <span style="--d:.7s;animation-delay:.2s"></span>
-        <span style="--d:.9s;animation-delay:.05s"></span>
-        <span style="--d:.65s;animation-delay:.15s"></span>
-      </div>
-    </div>
+    <button class="music-btn paused" id="music-btn" onclick="toggleMusic()" aria-label="Musique">🤍</button>
   </div>
   <audio id="bg-music" loop><source src="musique.mp3" type="audio/mpeg"></audio>
 
@@ -555,10 +561,10 @@ footer { background:#120D06;padding:3rem 2rem;text-align:center; }
 /* ─── CONFIG ─────────────────────────────────── */
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx3BGnj7B4Mxur9-zfqdRuJ56Tb01ZwgZrVowU2GALn0dNpuONB5g5vw-q5C0PhV6ub5Q/exec';
 
-/* ─── MUSIQUE (déclarée en premier) ──────────── */
+/* ─── MUSIQUE ─────────────────────────────────── */
 const bgMusic     = document.getElementById('bg-music');
 const musicPlayer = document.getElementById('music-player');
-const musicBar    = document.getElementById('music-bar');
+const musicBtn    = document.getElementById('music-btn');
 let musicPlaying  = false;
 let musicStarted  = false;
 
@@ -568,9 +574,8 @@ function startMusic() {
   bgMusic.play().then(() => {
     musicStarted = true;
     musicPlaying = true;
-    document.getElementById('icon-play').style.display  = 'none';
-    document.getElementById('icon-pause').style.display = 'block';
-    musicBar.classList.remove('paused');
+    musicBtn.textContent = '🩷';
+    musicBtn.classList.remove('paused');
     musicPlayer.classList.add('visible');
     let v = 0;
     const t = setInterval(() => { v = Math.min(v + 0.02, 0.45); bgMusic.volume = v; if (v >= 0.45) clearInterval(t); }, 100);
@@ -580,15 +585,13 @@ function startMusic() {
 function toggleMusic() {
   if (musicPlaying) {
     bgMusic.pause(); musicPlaying = false;
-    document.getElementById('icon-play').style.display  = 'block';
-    document.getElementById('icon-pause').style.display = 'none';
-    musicBar.classList.add('paused');
+    musicBtn.textContent = '🤍';
+    musicBtn.classList.add('paused');
   } else {
     bgMusic.play().catch(() => {});
     musicPlaying = true;
-    document.getElementById('icon-play').style.display  = 'none';
-    document.getElementById('icon-pause').style.display = 'block';
-    musicBar.classList.remove('paused');
+    musicBtn.textContent = '🩷';
+    musicBtn.classList.remove('paused');
   }
 }
 
@@ -661,7 +664,7 @@ window.addEventListener('scroll', function onScroll() {
   window.removeEventListener('scroll', onScroll);
 }, { passive: true });
 
-/* ─── COUNTDOWN — 18 août 2025 à 18h ─────────── */
+/* ─── COUNTDOWN ──────────────────────────────── */
 const weddingDate = new Date('2026-08-18T18:00:00');
 function tick() {
   const diff = weddingDate - new Date();
