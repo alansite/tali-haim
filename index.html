@@ -574,7 +574,7 @@ function startMusic() {
   bgMusic.play().then(() => {
     musicStarted = true;
     musicPlaying = true;
-    musicBtn.textContent = '🩷';
+    musicBtn.textContent = '🎶';
     musicBtn.classList.remove('paused');
     musicPlayer.classList.add('visible');
     let v = 0;
@@ -585,7 +585,7 @@ function startMusic() {
 function toggleMusic() {
   if (musicPlaying) {
     bgMusic.pause(); musicPlaying = false;
-    musicBtn.textContent = '🤍';
+    musicBtn.textContent = '⏸️';
     musicBtn.classList.add('paused');
   } else {
     bgMusic.play().catch(() => {});
